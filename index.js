@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+app.use(express.json())
 
 let notes =[
     {
@@ -46,6 +47,34 @@ app.delete('/api/notes/:id', (req, res) => {
     notes = notes.filter( item => item.id !== id)
     res.status(204).end()
 })
+
+const generateId = () => {
+    const maxId = notes.length > 0
+      ? Math.max(...notes.map(n => n.id)) // note.map() returns an array, so the ... is required, means all element in the note.map() result
+      : 0
+    return maxId + 1
+  }
+  
+  app.post('/api/notes', (req, res) => {
+    const body = req.body
+  
+    if (!body.content) {
+      return res.status(400).json({ 
+        error: 'content missing' 
+      })
+    }
+  
+    const note = {
+      id: generateId(),
+      content: body.content,
+      important: body.important || false,
+      date: new Date(),
+    }
+  
+    notes = notes.concat(note)
+    console.log(notes)
+    res.json(note)
+  })
 
 const PORT = 3001
 app.listen(PORT, () => {
