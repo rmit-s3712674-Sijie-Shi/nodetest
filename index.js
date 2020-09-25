@@ -20,19 +20,19 @@ app.use(requestLogger)
 let notes =[
     {
         id:1,
-        content: "1",
+        content: "Test webpage",
         date:'2019-05-30',
         important:'true'
     },
     {
         id:2,
-        content: "2",
+        content: "When you see this, it means the webpage is working!",
         date:'2019-05-31',
         important:'false'
     },
     {
         id:3,
-        content: "3",
+        content: "Sijie Shi",
         date:'2019-05-30',
         important:'true'
     }
