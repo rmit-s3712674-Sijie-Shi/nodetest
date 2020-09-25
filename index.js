@@ -35,7 +35,13 @@ let notes =[
         content: "Sijie Shi",
         date:'2019-05-30',
         important:'true'
-    }
+    },
+    {
+      id:4,
+      content: "2020.09.25",
+      date:'2019-05-30',
+      important:'true'
+  }
 ]
 
 app.get('/',(req, res) => {
