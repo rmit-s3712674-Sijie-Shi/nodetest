@@ -2,5 +2,12 @@ POST  http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content":"123"
+    "content":"test",
+    "important":false
 }
+###
+
+GET   http://localhost:3001/api/notes
+
+###
+GET http://localhost:3001/api/notes/set
